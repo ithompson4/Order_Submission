@@ -1,0 +1,44 @@
+<!DOCTYPE validators PUBLIC
+  		"-//Apache Struts//XWork Validator 1.0.2//EN"
+  		"http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
+<validators>
+   <field name="lname">
+      <field-validator type="requiredstring">
+         <message>
+            Last name is required
+         </message>
+      </field-validator>
+   </field>
+
+  <field name="fname">
+      <field-validator type="requiredstring">
+         <message>
+            First name is required
+         </message>
+      </field-validator>
+   </field>
+   
+   <field name="address">
+      <field-validator type="requiredstring">
+         <message>
+            Address is required
+         </message>
+      </field-validator>
+   </field>
+   
+   <field name="city">
+      <field-validator type="requiredstring">
+         <message>
+            City is required
+         </message>
+      </field-validator>
+   </field>
+   
+   <field name="state">
+      <field-validator type="requiredstring">
+         <message>
+            State is required
+         </message>
+      </field-validator>
+   </field>   
+</validators>

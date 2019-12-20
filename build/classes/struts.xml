@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.devMode" value="false" />
+	
+	<package name="default" extends="struts-default">
+		<action name="submitOrder" class="action.SubmitOrderAction">			 
+			<result name="success">retrieve.jsp</result>
+			<result name="input">submit.jsp</result>
+			<result name="error">error.jsp</result>
+		</action>
+		
+		<action name="selectAction" 
+         	class="action.ProductSelectAction" method="display">         	
+			<result name="none">submit.jsp</result>
+        </action>	
+        	
+		<action name="selectOrder" class="action.SelectOrderAction">
+			<result name="success">retrieve.jsp</result>
+			<result name="error">error.jsp</result>
+			<result name="noorderid">SelectOrder.jsp</result>
+			<result name="input">SelectOrder.jsp</result>			
+		</action>		
+	</package>
+</struts>    

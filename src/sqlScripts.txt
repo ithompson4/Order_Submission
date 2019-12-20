@@ -1,0 +1,56 @@
+create database productdb;
+use productdb;
+create table products(
+	ProductId	INTEGER primary key,
+	Description	VARCHAR(100),
+	Price	DECIMAL(10,2)
+);
+
+create table Orders (
+OrderId	INTEGER AUTO_INCREMENT primary key,
+FirstName	VARCHAR(100),
+LastName	VARCHAR(100),
+Address	VARCHAR(100),
+City	VARCHAR(100),
+State	VARCHAR(100),
+SubmissionDate	DATE
+);
+
+
+create table LineItems(
+	OrderID	INTEGER  ,
+	ProductId	INTEGER ,
+	Quantity	INTEGER,
+	TotalPrice	DECIMAL(10,2),
+	CONSTRAINT pk1 PRIMARY KEY(OrderID, ProductId),
+	CONSTRAINT fk1 FOREIGN KEY (OrderID)  references Orders(OrderId),
+    CONSTRAINT fk2 FOREIGN KEY (ProductId)  references products(ProductId)
+);
+
+ insert into products(ProductId,Description,Price) values (1, "Product 1", 9.99);
+ insert into products(ProductId,Description,Price) values(2, "Product 2", 19.99);
+ insert into products(ProductId,Description,Price) values(3, "Product 3", 29.99);
+ insert into products(ProductId,Description,Price) values(4, "Product 4", 39.99);
+ insert into products(ProductId,Description,Price) values(5, "Product 5", 49.99);
+
+insert into orders( FirstName, LastName, Address, City, State,SubmissionDate)
+values ('John1','Doe1','Street 1','City 1','State 1','2015-11-11');
+insert into orders( FirstName, LastName, Address, City, State,SubmissionDate)
+values ('John2','Doe2','Street 2','City 2','State 2','2015-11-10');
+insert into orders( FirstName, LastName, Address, City, State,SubmissionDate)
+values ('John3','Doe3','Street 3','City 3','State 3','2015-11-09');
+insert into orders( FirstName, LastName, Address, City, State,SubmissionDate)
+values ('John4','Doe4','Street 4','City 4','State 4','2015-11-08');
+insert into orders( FirstName, LastName, Address, City, State,SubmissionDate)
+values ('John','Doe','Street 1','City 1','State 1','2015-10-25');
+ 
+
+insert into LineItems(OrderID,ProductId,Quantity,TotalPrice )values(1,1,1,9.99);
+insert into LineItems(OrderID,ProductId,Quantity,TotalPrice )values(1,2,2,39.98);
+insert into LineItems(OrderID,ProductId,Quantity,TotalPrice )values(2,1,1,9.99);
+insert into LineItems(OrderID,ProductId,Quantity,TotalPrice )values(2,3,3, 89.97);
+insert into LineItems(OrderID,ProductId,Quantity,TotalPrice )values(4,4,1,39.99);
+insert into LineItems(OrderID,ProductId,Quantity,TotalPrice )values(3,5,1,49.99);
+insert into LineItems(OrderID,ProductId,Quantity,TotalPrice )values(5,5,5,249.95);
+
+ 
